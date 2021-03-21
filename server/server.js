@@ -7,14 +7,13 @@ import * as path from 'path'
 import React from 'react'
 import { renderToNodeStream } from 'react-dom/server'
 import { config } from '../config'
-import FindALanding from '../src/routes/FindALanding'
-
+import App from '../src/App'
 const { API_URL, PAGE_ROUTE } = config.url
 const __dirname = path.resolve(path.dirname(''))
 const BUILD_DIR = path.join(__dirname, '', 'build')
 let html = fs.readFileSync(path.join(BUILD_DIR, 'index.html')).toString()
 
-const fetchMarketData = () => {
+function fetchMarketData() {
   const requestHeaders = {
     method: 'GET',
     headers: {
@@ -23,7 +22,6 @@ const fetchMarketData = () => {
       accept: 'json',
     },
   }
-  console.error(`${API_URL}`)
   return fetch(new URL(`${API_URL}/api/v1/markets.json`), requestHeaders)
     .then((response) => response.json())
     .then((result) => {
@@ -50,12 +48,11 @@ app.get([`${PAGE_ROUTE}`, '/'], async (req, res) => {
   app.use('/api', createProxyMiddleware({ target: `${API_URL}`, changeOrigin: true }))
   let componentData = null
   componentData = await fetchMarketData()
-  console.log(process.env.HEAP_ID)
   html = html.replace('var HEAP_ID = null', `const HEAP_ID = ${process.env.HEAP_ID}`)
   html = html.replace('var initial_state = null', `var initial_state = ${JSON.stringify(componentData)}`)
   const parts = html.split('not rendered')
   res.write(parts[0])
-  const stream = renderToNodeStream(<FindALanding staticContext={componentData} />)
+  const stream = renderToNodeStream(<App staticContext={componentData} />)
   stream.pipe(res, { end: false })
   stream.on('end', () => {
     res.write(parts[1])

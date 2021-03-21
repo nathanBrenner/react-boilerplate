@@ -1,5 +1,5 @@
 {
-  "name": "landing_web",
+  "name": "react-boilerplate",
   "version": "1.0.0",
   "description": "web 2.0",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/calizahq/landing_web.git"
+    "url": "git+https://github.com/nathanBrenner/react-boilerplate.git"
   },
   "proxy": "http://localhost:3000",
   "devDependencies": {
@@ -121,7 +121,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/calizahq/landing_web/issues"
+    "url": "https://github.com/nathanBrenner/react-boilerplate/issues"
   },
-  "homepage": "https://github.com/calizahq/landing_web#readme"
+  "homepage": "https://github.com/nathanBrenner/react-boilerplate#readme"
 }
