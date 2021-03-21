@@ -1,0 +1,83 @@
+@tailwind base;
+
+@tailwind components;
+
+@font-face {
+  font-family: 'Moderat';
+  src: local('Moderat'), url(../assets/fonts/Moderat-Regular.eot) format('eot'),
+    url(../assets/fonts/Moderat-Regular.woff) format('woff'), url(../assets/fonts/Moderat-Regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Moderat-Bold';
+  src: local('Moderat'), url(../assets/fonts/Moderat-Bold.eot) format('eot'),
+    url(../assets/fonts/Moderat-Bold.woff) format('woff'), url(../assets/fonts/Moderat-Bold.woff2) format('woff2');
+  font-weight: bold;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Moderat-Medium';
+  src: local('Moderat'), url(../assets/fonts/Moderat-Medium.eot) format('eot'),
+    url(../assets/fonts/Moderat-Medium.woff) format('woff'), url(../assets/fonts/Moderat-Medium.woff2) format('woff2');
+  font-weight: medium;
+  font-style: medium;
+}
+
+@font-face {
+  font-family: 'Moderat-Light';
+  src: local('Moderat'), url(../assets/fonts/Moderat-Light.eot) format('eot'),
+    url(../assets/fonts/Moderat-Light.woff) format('woff'), url(../assets/fonts/Moderat-Light.woff2) format('woff2');
+  font-weight: lighter;
+  font-style: lighter;
+}
+
+@tailwind utilities;
+
+@layer utilities {
+  .app-container {
+    max-width: 1236px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .link-font {
+    font-style: normal;
+    font-family: 'Moderat-Bold';
+    line-height: 121%;
+    letter-spacing: 0.05em;
+  }
+  .link {
+    text-decoration: none;
+    transition: color 0.15s ease-in;
+  }
+  .link:link,
+  .link:visited {
+    transition: color 0.15s ease-in;
+  }
+  .link:hover {
+    transition: color 0.15s ease-in;
+  }
+
+  .full-height {
+    max-height: calc(var(--vh, 1vh) * 100) !important;
+  }
+
+  /*Dim element on hover by adding the dim class.  */
+
+  .dim {
+    opacity: 1;
+    transition: opacity 0.15s ease-in;
+  }
+  .dim:hover,
+  .dim:focus {
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in;
+  }
+  .dim:active {
+    opacity: 0.8;
+    transition: opacity 0.15s ease-out;
+  }
+}

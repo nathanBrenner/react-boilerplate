@@ -1,0 +1,24 @@
+# dependencies
+node_modules
+
+# production
+build
+server-build
+
+# mac files
+.DS_Store
+
+# enviroment files
+.env*
+
+# log files
+yarn-error.log
+
+# linting
+.eslintcache
+
+#Tailwind
+src/styles/main.css
+
+# editors
+.vscode
